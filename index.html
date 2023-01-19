@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="./components/Modal.styles.css" />
+    <title>PlanetLearn</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      @font-face {
+        font-family: "Proxima Nova Light";
+        src: url("assets/fonts/Proxima\ Nova\ Light.ttf");
+      }
+      @font-face {
+        font-family: "Proxima Nova Regular";
+        src: url("assets/fonts/Proxima\ Nova\ Regular.ttf");
+      }
+      @font-face {
+        font-family: "Proxima Nova SemiBold";
+        src: url("assets/fonts/Proxima\ Nova\ SemiBold.ttf");
+      }
+      @font-face {
+        font-family: "Proxima Nova Bold";
+        src: url("assets/fonts/Proxima\ Nova\ Bold.ttf");
+      }
+      @font-face {
+        font-family: "Proxima Nova ExtraBold";
+        src: url("assets/fonts/Proxima\ Nova\ ExtraBold.ttf");
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="background">
+        <div v-show="isModalOpen">
+          <modal @show-modal="showModal"></modal>
+        </div>
+
+        <div class="container">
+          <div class="page__top">
+            <img class="page__logo" src="./assets/images/logo.svg" alt="Logo" />
+          </div>
+          <div class="page__content">
+            <div class="page__content-left">
+              <h1 class="page__content-title">
+                Start your learning journey now
+              </h1>
+              <p class="page__content-text">
+                Get a <span class="text-orange-bold">Planet</span
+                ><span class="text-black-bold">Learn</span> plan to rock
+                self-learning
+              </p>
+              <button @click="showModal" class="page__content-button">
+                Get my plan
+              </button>
+            </div>
+            <div class="page__content-right">
+              <div class="page__block-wrapper">
+                <img
+                  class="page__block-asteroid"
+                  src="./assets/images/asteroid.svg"
+                  alt=""
+                />
+
+                <div
+                  :class="seconds === 0 && 'timer-hidden'"
+                  class="page__block-top"
+                >
+                  <div class="page__block-left">
+                    <h2 class="page__block-title">
+                      3-day trial for
+                      <span class="text-orange-bold">$0.99</span>
+                    </h2>
+                    <div
+                      :class="seconds === 0 && 'text-center'"
+                      class="page__block-prices"
+                    >
+                      <span v-if="seconds > 0" class="page__block-price"
+                        >Then $9.99</span
+                      >
+                      <span v-else class="page__block-price"
+                        >Then $39.99/week</span
+                      >
+                      <span
+                        v-show="seconds > 0"
+                        class="page__block-price price-crossed"
+                        >$39.99/week</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    v-if="seconds > 0"
+                    class="page__block-timer"
+                    :class="seconds < 10 && 'timer-ends'"
+                  >
+                    <span class="page__block-timer-time"
+                      >{{Math. floor(this.seconds /
+                      60)}}:{{this.formattedSeconds}}</span
+                    >
+                    <div class="page__block-timer-bar"></div>
+                  </div>
+                </div>
+
+                <div class="page__block-benefits">
+                  <div class="page__block-benefit">
+                    <img
+                      class="page__block-benefit-img"
+                      src="./assets/images/star.svg"
+                      alt=""
+                    />
+                    <span class="page__block-benefit-text">
+                      Exclusive access to
+                      <span class="benefit-orange">350+</span> learning programs
+                    </span>
+                  </div>
+
+                  <div class="page__block-benefit">
+                    <img
+                      class="page__block-benefit-img"
+                      src="./assets/images/star.svg"
+                      alt=""
+                    />
+                    <span class="page__block-benefit-text"
+                      >Personalized course plan</span
+                    >
+                  </div>
+
+                  <div class="page__block-benefit">
+                    <img
+                      class="page__block-benefit-img"
+                      src="./assets/images/star.svg"
+                      alt=""
+                    /><span class="page__block-benefit-text"
+                      >Comfy learning schedule made by you</span
+                    >
+                  </div>
+
+                  <div class="page__block-benefit">
+                    <img
+                      class="page__block-benefit-img"
+                      src="./assets/images/star.svg"
+                      alt=""
+                    /><span class="page__block-benefit-text"
+                      ><span class="benefit-orange">24/7</span> tutor support in
+                      a secure chat</span
+                    >
+                  </div>
+
+                  <div class="page__block-benefit">
+                    <img
+                      class="page__block-benefit-img"
+                      src="./assets/images/star.svg"
+                      alt=""
+                    /><span class="page__block-benefit-text"
+                      >Lifetime access to materials</span
+                    >
+                  </div>
+                </div>
+
+                <div class="page__block-payment">
+                  <img
+                    class="page__block-payment-image"
+                    src="./assets/images/lock.svg"
+                    alt="Lock"
+                  />
+                  Safe & secure payment
+                </div>
+
+                <p class="page__block-text">
+                  $0.99 charged today. If you don't cancel at least 24 hours
+                  before the end of the 3-day trial period, you will
+                  automatically be charged the full price of $19.99/Month . You
+                  can cancel your subscription at any time. By continuing, you
+                  indicate that you've read and agree to our Terms & Conditions,
+                  Privacy Policy , Money Back , and Subscription Terms .
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="/components/Modal.js"></script>
+    <script>
+      app.mount("#app");
+    </script>
+  </body>
+</html>

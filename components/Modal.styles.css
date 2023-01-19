@@ -1,0 +1,185 @@
+.modal__wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 16px;
+  width: 400px;
+  height: 552px;
+  background: #ffffff;
+  box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+}
+
+.modal__title {
+  font-size: 21px;
+  line-height: 25px;
+  font-family: "Proxima Nova ExtraBold";
+}
+
+.modal__paypal-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fec538;
+  border-radius: 12px;
+  padding: 20px 24px;
+  width: 100%;
+  gap: 10px;
+  color: #000000;
+  font-size: 16px;
+  line-height: 19px;
+  font-family: "Proxima Nova Bold";
+  margin-top: 25px;
+  transition: background 0.3s ease-in-out;
+}
+.modal__paypal-button:hover {
+  background: #ffda80;
+}
+
+.modal__google-pay-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #e1e1e1;
+  border-radius: 12px;
+  padding: 12px;
+  width: 100%;
+  margin-top: 15px;
+  font-family: "Proxima Nova SemiBold";
+  transition: all 0.3s ease-in-out;
+}
+.modal__google-pay-button:hover {
+  background: #000000;
+  color: #fff;
+}
+
+.modal__option-divider {
+  margin: 16px 0 23px;
+  width: 100%;
+}
+
+.modal__form {
+  width: 100%;
+}
+
+.modal__card-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 0px;
+  height: 50px;
+  border: 1px solid #d2d5da;
+  border-radius: 8px;
+  font-family: "Proxima Nova Bold";
+  font-size: 14px;
+  line-height: 15px;
+  color: #121826;
+  width: 100%;
+}
+#card-number,
+#cvc-number {
+  width: 100%;
+  height: 100%;
+  border: hidden;
+  background: transparent;
+  font-family: "Proxima Nova Bold";
+  font-size: 14px;
+  line-height: 17px;
+  outline: none;
+  padding: 15px;
+  position: relative;
+  top: 2px;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.modal__card-image {
+  position: absolute;
+  right: 10px;
+  top: 2px;
+}
+
+.modal__masks-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 35px;
+}
+
+.modal__card-text {
+  font-family: "Proxima Nova Regular";
+  font-size: 14px;
+  line-height: 15px;
+  color: #6c727f;
+  padding-left: 5px;
+}
+.modal__arrow-down {
+  position: absolute;
+  right: 12px;
+  top: 9px;
+}
+
+.modal__submit {
+  width: 100%;
+  height: 56px;
+  background: #d2d2d2;
+  border-radius: 12px;
+  border: 0px;
+  font-family: "Proxima Nova Bold";
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  margin-top: 40px;
+  transition: all 0.3s ease-in-out;
+}
+
+.submit-active {
+  background: #000000;
+  cursor: pointer;
+}
+.submit-active:hover {
+  background: #00ca14;
+}
+
+.modal__close {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 16px;
+  line-height: 22px;
+  font-family: "Proxima Nova SemiBold";
+  display: table;
+  margin: 0 auto;
+  margin-top: 22px;
+  cursor: pointer;
+}
+
+@media (max-width: 430px) {
+  .modal__content {
+    width: 90%;
+  }
+
+  legend {
+    font-size: 12px;
+  }
+
+  .modal__card-text {
+    font-size: 14px;
+  }
+  .modal__arrow-down {
+    width: 10px;
+    top: 10px;
+  }
+}
